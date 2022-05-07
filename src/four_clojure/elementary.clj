@@ -48,5 +48,10 @@
 
 (defn map-1 [x] (map #(+ % 1) x))
 
-(defn big-map [x] (if (< (count x) 1000) (recur (conj (map-1 x) 3 2 1)) x))
+(defn big-map
+  ([]  (big-map '(1 2 3)))
+  ([x] (if (< (count x) 1000)
+       (recur (conj (map #(+ 4 %) x) 3 2 1))
+       x)))
 
+(defn big-partition [] (partition 3 5 (range 1 1000))) 
