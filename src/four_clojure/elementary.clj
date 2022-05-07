@@ -31,3 +31,22 @@
 (defn sequences [] (= (first '(1 2 3)) (second [2 1 3]) (last (list 3 2 1))))
 
 (defn the-rest [] (rest '(0 1 2 3)))
+
+(defn fiver [] (= 8 ((fn add-five [x] (+ x 5)) 3)))
+
+(defn fiver-anon [] (= 8 ((fn [x] (+ x 5)) 3)))
+
+(defn fiver-short [] (= 8 (#(+ % 5) 3)))
+
+(defn fiver-partial [] (= 8 ((partial + 5) 3)))
+
+(defn doubler [x] (* 2 ((partial + 1.5) x)))
+
+(defn hello-world [x] (str "Hello" \space x))
+
+(defn map-5 [x] (map #(* % 5) x))
+
+(defn map-1 [x] (map #(+ % 1) x))
+
+(defn big-map [x] (if (< (count x) 1000) (recur (conj (map-1 x) 3 2 1)) x))
+
