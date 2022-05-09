@@ -55,3 +55,5 @@
        x)))
 
 (defn big-partition [] (partition 3 5 (range 1 1000))) 
+
+(defn filter-5 [] (filter #(> % 5) (range 20)))
