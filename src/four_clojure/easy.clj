@@ -16,3 +16,22 @@
 (defn get-cars [] cars)
 
 (defn test-let [] (let [tester true] tester))
+
+(def words ["the" "George" "filter" "oar" "Franklin" "zoo"])
+
+(def odd-words
+  (comp
+   (filter (fn [x] (odd? (count x))))
+   (map (fn [x] (.toUpperCase x)))))
+
+(def simple
+  (comp
+   (map inc)
+   (filter even?)))
+
+;;eager
+;;(into [] odd-words words)
+
+;;lazy
+;;(sequence odd-words words)
+
