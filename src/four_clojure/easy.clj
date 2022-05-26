@@ -35,3 +35,9 @@
 ;;lazy
 ;;(sequence odd-words words)
 
+(def tax-calculation
+  (comp
+   (filter #(>= % 100))
+   (map #(* 0.08 %))))
+
+(def tax (transduce tax-calculation + 0 [99 100 101]))
