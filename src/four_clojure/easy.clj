@@ -41,3 +41,5 @@
    (map #(* 0.08 %))))
 
 (def tax (transduce tax-calculation + 0 [99 100 101]))
+
+(def the-sum (reduce + 0 [2 4 6]))
