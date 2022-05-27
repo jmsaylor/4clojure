@@ -48,6 +48,19 @@
 
 (defn find-odds [coll] (transduce odd-comp conj [] coll))
 
+(defn fib
+  ([x]
+   (if (= x 0) [ ]
+   (if (= x 1) [ 0 ]
+   (fib (- x 3) [0 1]))))
+  ([x coll]
+   (if (< x 0)
+     coll
+     (let [[n1 n2] (take-last 2 coll)]
+       (recur (dec x) (conj coll (+ n1 n2)))))))
 
 
+(def nums (take-last 2 [1 2 3]))
+
+(defn test-take [] (let [[x y] (take-last 2 [1 2 3])] (+ x y)))
 
