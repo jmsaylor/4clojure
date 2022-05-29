@@ -63,3 +63,6 @@
 
 (defn test-take [] (let [[x y] (take-last 2 [1 2 3])] (+ x y)))
 
+(defn rev [coll] (into '() coll))
+
+(defn is-palindrome [thing] (= (seq thing) (into '() thing)))
