@@ -66,3 +66,9 @@
 (defn rev [coll] (into '() coll))
 
 (defn is-palindrome [thing] (= (seq thing) (into '() thing)))
+
+(defn f1 [n] [(- n 1) n (+ n 1)])
+
+(defn mad-catter [coll] (mapcat f1 coll))
+
+(defn mad-mapper [coll] (map f1 coll))
