@@ -7,7 +7,7 @@
 (defn penultimate-of-vec [] (#(get % (- (count %) 2)) [1 2 3 4 5]))
 
 (defn penultimate-of-list [] (#(let [v (vec %)]
-                                (get v (- (count v) 2))) '(1 2 3 4 5)))
+                                 (get v (- (count v) 2))) '(1 2 3 4 5)))
 
 (def cars [{:name 'Porsche :year 1995} {:name 'Cadillac :year 1970} {:name 'Tesla :year 2021}])
 
@@ -50,15 +50,14 @@
 
 (defn fib
   ([x]
-   (if (= x 0) [ ]
-   (if (= x 1) [ 0 ]
-   (fib (- x 3) [0 1]))))
+   (if (= x 0) []
+       (if (= x 1) [0]
+           (fib (- x 2) [0 1]))))
   ([x coll]
-   (if (< x 0)
+   (if (< x 1)
      coll
      (let [[n1 n2] (take-last 2 coll)]
        (recur (dec x) (conj coll (+ n1 n2)))))))
-
 
 (def nums (take-last 2 [1 2 3]))
 
