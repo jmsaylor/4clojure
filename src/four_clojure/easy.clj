@@ -74,10 +74,16 @@
 (defn mad-mapper [coll] (map f1 coll))
 
 (defn flat [coll]
+  (if (not (coll? coll))
+    (list coll)
+    (mapcat flat coll)))
+
+(defn flat-a [coll]
   ;;(println coll)
-  (if (not (sequential? coll))
+  (if (not (coll? coll))
     (do (println (str "n seq: " coll))
         (list coll))
     (do (println (str "seq: " coll))
-        (mapcat flat coll))))
+        (mapcat flat-a coll))))
 
+()
