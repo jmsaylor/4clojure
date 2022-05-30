@@ -86,4 +86,3 @@
     (do (println (str "seq: " coll))
         (mapcat flat-a coll))))
 
-()
