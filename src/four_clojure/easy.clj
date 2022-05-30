@@ -81,8 +81,8 @@
 (defn flat-a [coll]
   ;;(println coll)
   (if (not (coll? coll))
-    (do (println (str "n seq: " coll))
+    (do (println (str "true:  " coll))
         (list coll))
-    (do (println (str "seq: " coll))
+    (do (println (str "false: " coll))
         (mapcat flat-a coll))))
 
