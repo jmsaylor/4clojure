@@ -86,3 +86,5 @@
     (do (println (str "false: " coll))
         (mapcat flat-a coll))))
 
+(defn grab-capitals [s] (reduce str (re-seq #"[A-Z]" s)))
+
