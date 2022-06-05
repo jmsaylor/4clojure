@@ -90,6 +90,6 @@
 
 (defn compress [i] (reduce #(if (not= %2 (last %1)) (conj %1 %2) %1) [] i))
 
-(defn compress-f [i] (fn [a b] (if (not= b (last a)) (conj a b)) a) [] i)
+(defn compress-f [i] (reduce (fn [a b] (if (not= b (last a)) (conj a b) a)) [] i))
 
 (defn compress-m [i] (map last (partition-by str i)))
