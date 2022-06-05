@@ -93,3 +93,5 @@
 (defn compress-f [i] (reduce (fn [a b] (if (not= b (last a)) (conj a b) a)) [] i))
 
 (defn compress-m [i] (map last (partition-by str i)))
+
+(defn pack [x] (partition-by identity x))
