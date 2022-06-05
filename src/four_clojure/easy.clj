@@ -99,3 +99,9 @@
 (defn duplicate-r [s] (reduce (fn [acc next] (conj acc next next)) [] s))
 
 (defn duplicate-i [s] (interleave s s))
+
+(defn duplicate-m [s] (mapcat (fn [r] (repeat 2 r)) s))
+
+(defn s-duplicate [s] (flat (list s s)))
+
+(defn s-duplicate-r [s] (reduce (fn [acc next] (conj acc next)) s s))
