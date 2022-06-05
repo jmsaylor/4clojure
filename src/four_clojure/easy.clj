@@ -95,3 +95,7 @@
 (defn compress-m [i] (map last (partition-by str i)))
 
 (defn pack [x] (partition-by identity x))
+
+(defn duplicate-r [s] (reduce (fn [acc next] (conj acc next next)) [] s))
+
+(defn duplicate-i [s] (interleave s s))
