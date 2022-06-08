@@ -109,3 +109,5 @@
 (defn interpose-m [c i]
   (let [r (reduce (fn [acc next] (conj acc next c)) [] i)]
     (butlast r)))
+
+(defn interpose-m-alt [c i] (butlast (reduce #(conj %1 %2 c) [] i)))
