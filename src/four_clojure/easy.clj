@@ -105,3 +105,7 @@
 (defn s-duplicate [s] (flat (list s s)))
 
 (defn s-duplicate-r [s] (reduce (fn [acc next] (conj acc next)) s s))
+
+(defn interpose-m [c i]
+  (let [r (reduce (fn [acc next] (conj acc next c)) [] i)]
+    (butlast r)))
