@@ -111,3 +111,13 @@
     (butlast r)))
 
 (defn interpose-m-alt [c i] (butlast (reduce #(conj %1 %2 c) [] i)))
+
+(defn max-value [& i] (reduce (fn [acc next] (if (> acc next) acc next)) i))
+
+(defn max-value-rec
+  ([i] (max-value-rec (first i) (rest i)))
+  ([m i] (if (empty? i)
+            m
+            (let [m-local (max m (first i))]
+              (recur m-local (rest i))))))
+
