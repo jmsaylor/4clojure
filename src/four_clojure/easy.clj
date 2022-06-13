@@ -121,3 +121,5 @@
             (let [m-local (max m (first i))]
               (recur m-local (rest i))))))
 
+
+(def test-arch 'arch)
