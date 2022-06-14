@@ -121,5 +121,14 @@
             (let [m-local (max m (first i))]
               (recur m-local (rest i))))))
 
-
 (def test-arch 'arch)
+
+(defn range-m
+  ([x y] (range-m (list y) x y))
+  ([l x y]
+   (let [f (first l)]
+   (if (<= f x)
+     l
+     (recur (conj l (- f 1)) x y)))))
+
+(defn range-o [x y] (if (= x y) nil (cons x (range-o (+ x 1) y))))
