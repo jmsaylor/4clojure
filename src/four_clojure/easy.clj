@@ -132,3 +132,6 @@
      (recur (conj l (- f 1)) x y)))))
 
 (defn range-o [x y] (if (= x y) nil (cons x (range-o (+ x 1) y))))
+
+(defn k-index [c] (keep-indexed (fn [index value] (str index value)) c))
+   
