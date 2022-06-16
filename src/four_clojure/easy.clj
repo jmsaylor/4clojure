@@ -135,4 +135,6 @@
 
 (defn k-index [c] (keep-indexed (fn [index value] (conj (list value) index)) c))
    
-(defn fact [i] (reduce (fn [acc next] (* acc next)) 1 (range 2 (+ i 1))))
+(defn fact [i] (reduce (fn [acc next] (* acc next)) 1 (range 2 (inc i))))
+
+(defn fact-r [i] (* i (if (> i 1) (fact-r (dec i)) 1)))
